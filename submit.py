@@ -97,13 +97,13 @@ def submitForm(username, form, cookies, wid, formWid, schoolTaskWid):
     payload['latitude'] = ""
     payload['longitude'] = ""
     print(payload)
-    '''res = requests.post(url=url, headers=headers,
+    res = requests.post(url=url, headers=headers,
                         cookies=cookies, data=json.dumps(payload))
     data = res.json()
     if data['code'] == 0:
         print('成功提交')
     else:
-        print('提交失败')'''
+        print('提交失败')
 
 
 def main(username, password):
