@@ -1,3 +1,2 @@
 pycryptodome
 requests
-python-certifi-win32
