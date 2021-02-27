@@ -2,7 +2,7 @@ name: cpdaily
 
 on:
   schedule:
-    - cron:  '1,2,3,4,5 * * * *'
+    - cron:  '8-10 16 * * *'
   watch:
     types: [ started ]
 jobs:
