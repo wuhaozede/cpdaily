@@ -15,6 +15,7 @@ def queryCollectorProcessingList(headers, cookies):
     res = requests.post(url=url, headers=headers, cookies=cookies,
                         data=json.dumps(payload))
     data = res.json()
+    print(data)
     # 判断问卷提交状态
     if data['datas']['totalSize'] == 0:
         exit('无待提交的问卷')
@@ -42,8 +43,11 @@ def detailCollector(wid, headers, cookies):
     res = requests.post(url=url, headers=headers, cookies=cookies,
                         data=json.dumps(payload))
     data = res.json()
-    return data['datas']['collector']
 
+    formWid = data['datas']['collector']['formWid']
+    schoolTaskWid = data['datas']['collector']['schoolTaskWid']
+
+    return (formWid, schoolTaskWid)
 
 def getFormFields(formWid, collectorWid, headers, cookies):
     payload = {"pageNumber": 1, "pageSize": 20,
@@ -52,10 +56,10 @@ def getFormFields(formWid, collectorWid, headers, cookies):
     res = requests.post(url=url, headers=headers, cookies=cookies,
                         data=json.dumps(payload))
     data = res.json()
-    formWid = data['datas']['formWid']
-    schoolTaskWid = data['datas']['schoolTaskWid']
+    rows = data['datas']['rows']
+    
 
-    return (formWid, schoolTaskWid)
+    return rows
 
 
 def submitForm(username, form, cookies, wid, formWid, schoolTaskWid):
@@ -92,14 +96,14 @@ def submitForm(username, form, cookies, wid, formWid, schoolTaskWid):
     payload['uaIsCpadaily'] = True
     payload['latitude'] = ""
     payload['longitude'] = ""
-
-    res = requests.post(url=url, headers=headers,
+    print(payload)
+    '''res = requests.post(url=url, headers=headers,
                         cookies=cookies, data=json.dumps(payload))
     data = res.json()
     if data['code'] == 0:
         print('成功提交')
     else:
-        print('提交失败')
+        print('提交失败')'''
 
 
 def main(username, password):
