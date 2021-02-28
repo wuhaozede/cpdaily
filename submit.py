@@ -84,7 +84,7 @@ def submitForm(username, form, cookies, wid, formWid, schoolTaskWid):
         "Accept-Encoding": "gzip",
     }
     url = "https://ahnu.campusphere.net/wec-counselor-collector-apps/stu/collector/submitForm"
-
+    payload = {}
     payload['formWid'] = formWid
     payload['address'] = ""
     payload['collectWid'] = wid
@@ -93,7 +93,6 @@ def submitForm(username, form, cookies, wid, formWid, schoolTaskWid):
     payload['uaIsCpadaily'] = True
     payload['latitude'] = ""
     payload['longitude'] = ""
-    print(payload)
     res = requests.post(url=url, headers=headers,
                         cookies=cookies, data=json.dumps(payload))
     data = res.json()
