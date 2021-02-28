@@ -4,7 +4,7 @@ def singleItem(r1,r2):
     r1['maxValue'] = 0
     lis = r2['value'].split('/')
     for i in range(len(lis)):
-        r1['area'+str(i)] = lis[i]
+        r1['area'+str(i+1)] = lis[i]
     return r1
 
 
