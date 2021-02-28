@@ -15,7 +15,6 @@ def queryCollectorProcessingList(headers, cookies):
     res = requests.post(url=url, headers=headers, cookies=cookies,
                         data=json.dumps(payload))
     data = res.json()
-    print(data)
     # 判断问卷提交状态
     if data['datas']['totalSize'] == 0:
         exit('无待提交的问卷')
@@ -85,8 +84,6 @@ def submitForm(username, form, cookies, wid, formWid, schoolTaskWid):
         "Accept-Encoding": "gzip",
     }
     url = "https://ahnu.campusphere.net/wec-counselor-collector-apps/stu/collector/submitForm"
-    with open('request.json', 'r', encoding='utf-8') as jsFile:
-        payload = json.load(jsFile)
 
     payload['formWid'] = formWid
     payload['address'] = ""
