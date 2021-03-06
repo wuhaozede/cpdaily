@@ -13,7 +13,7 @@ def multipleItems(r1, r2):
     r1['maxValue'] = 0
     for item in r2['fieldItems']:
         if item['isSelected'] == 1:
-            global content = item['content']
+            content = item['content']
     for item in r1['fieldItems']:
         if item['content'] == content:
             value = item['itemWid']
