@@ -20,6 +20,11 @@ def multipleItems(r1, r2):
             item['isSelected'] = 1
             r1['fieldItems'] = []
             r1['fieldItems'].append(item)
+        else:
+            value = item['itemWid']
+            item['isSelected'] = 1
+            r1['fieldItems'] = []
+            r1['fieldItems'].append(item)
     r1['value'] = value
     return r1
 
