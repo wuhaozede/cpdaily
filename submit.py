@@ -32,7 +32,7 @@ def queryCollectorHistoryList(headers, cookies):
     res = requests.post(url=url, headers=headers, cookies=cookies,
                         data=json.dumps(payload))
     data = res.json()
-    wid = data['datas']['rows'][0]['wid']
+    wid = data['datas']['rows'][1]['wid']
     return wid
 
 
@@ -96,7 +96,7 @@ def submitForm(username, form, cookies, wid, formWid, schoolTaskWid):
     res = requests.post(url=url, headers=headers,
                         cookies=cookies, data=json.dumps(payload))
     data = res.json()
-    if data['code'] == 0:
+    if data['code'] == "0":
         print('成功提交')
     else:
         print('提交失败')
