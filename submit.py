@@ -32,7 +32,7 @@ def queryCollectorHistoryList(headers, cookies):
     res = requests.post(url=url, headers=headers, cookies=cookies,
                         data=json.dumps(payload))
     data = res.json()
-    wid = data['datas']['rows'][15]['wid']
+    wid = data['datas']['rows'][9]['wid']
     return wid
 
 
